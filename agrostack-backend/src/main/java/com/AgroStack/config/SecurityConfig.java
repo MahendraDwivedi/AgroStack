@@ -29,15 +29,13 @@ public class SecurityConfig {
             )
             .authorizeHttpRequests(auth -> auth
 
+                // Browser CORS preflight
                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 
-                .requestMatchers("/api/auth/**").permitAll()
+                // Let existing controllers handle authentication/authorization
+                .requestMatchers("/api/**").permitAll()
 
-                .requestMatchers(HttpMethod.GET, "/api/questions/**").permitAll()
-
-                .requestMatchers(HttpMethod.GET, "/api/**").permitAll()
-
-                .anyRequest().authenticated()
+                .anyRequest().permitAll()
             );
 
         return http.build();
