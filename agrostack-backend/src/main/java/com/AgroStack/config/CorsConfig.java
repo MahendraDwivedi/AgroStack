@@ -10,16 +10,14 @@ public class CorsConfig {
 
     @Bean
     public WebMvcConfigurer corsConfigurer() {
-
         return new WebMvcConfigurer() {
 
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-
                 registry.addMapping("/**")
                         .allowedOriginPatterns(
                                 "http://localhost:5173",
-                                "https://agrostack.onrender.com"
+                                "https://agro-stack.onrender.com"
                         )
                         .allowedMethods(
                                 "GET",
