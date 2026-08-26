@@ -1,0 +1,373 @@
+/* ================= ROOT ================= */
+
+.home-container {
+  min-height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    var(--bg) 0%,
+    var(--card-bg) 100%
+  );
+  padding: 2.5rem 1rem;
+  transition: background 0.3s ease;
+}
+
+/* ================= SEARCH BAR ================= */
+
+.search-bar {
+  max-width: 1200px;
+  margin: 0 auto 1.8rem auto;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text);
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.search-bar input::placeholder {
+  color: rgba(148, 163, 184, 0.8);
+}
+
+.search-bar input:focus {
+  border-color: #f48024;
+  box-shadow: 0 0 0 3px rgba(244, 128, 36, 0.2);
+}
+
+/* ================= QUESTIONS CONTAINER ================= */
+
+.question-row {
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 14px;
+  background: var(--card-bg);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+/* ================= HEADER ================= */
+
+.question-row h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text);
+  padding: 1.3rem 1.6rem;
+  margin: 0;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(
+    to right,
+    #f48024 0%,
+    #f48024 5px,
+    transparent 5px
+  );
+}
+
+/* ================= QUESTION CARD ================= */
+
+.question-card {
+  display: flex;
+  gap: 1.6rem;
+  padding: 1.4rem 1.6rem;
+  border-bottom: 1px solid var(--border);
+  transition: all 0.2s ease;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.question-card:last-child {
+  border-bottom: none;
+}
+
+.question-card:hover {
+  background: rgba(148, 163, 184, 0.07);
+  transform: translateY(-1px);
+}
+
+/* ================= QUESTION CONTENT ================= */
+
+.question-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.question-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #3b82f6;
+  cursor: pointer;
+  margin: 0;
+}
+
+.question-title:hover {
+  text-decoration: underline;
+}
+
+.question-content p {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text);
+  opacity: 0.88;
+}
+
+.question-content small {
+  font-size: 0.8rem;
+  color: var(--text);
+  opacity: 0.6;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.question-content small::before {
+  content: "📂";
+  font-size: 0.8rem;
+}
+
+/* ================= CATEGORY TAG ================= */
+
+.category {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* ================= STATS ================= */
+
+.question-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  min-width: 120px;
+  align-items: center;
+}
+
+.question-stats > div {
+  font-size: 0.8rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-weight: 500;
+  min-width: 95px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.question-stats > div:hover {
+  background: rgba(148, 163, 184, 0.15);
+}
+
+/* Highlight answers */
+.question-stats > div:nth-child(2) {
+  color: #22c55e;
+  border-color: rgba(34, 197, 94, 0.4);
+  background: rgba(34, 197, 94, 0.1);
+}
+
+/* ================= EMPTY STATE ================= */
+
+.empty {
+  padding: 2.5rem;
+  text-align: center;
+  opacity: 0.6;
+  font-size: 0.95rem;
+}
+
+/* ================= PAGINATION ================= */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.pagination button {
+  padding: 0.45rem 1.1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: rgba(148, 163, 184, 0.15);
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .question-row {
+    border-radius: 0;
+  }
+
+  .question-card {
+    flex-direction: column;
+  }
+
+  .question-stats {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .question-stats > div {
+    flex: 1;
+  }
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ================= FILTER BAR ================= */
+
+.filter-bar {
+  max-width: 1200px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Sort dropdown */
+.filter-bar select {
+  padding: 0.45rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text);
+  cursor: pointer;
+}
+
+/* ================= CATEGORY PILLS ================= */
+
+.category-pills {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.category-pills button {
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.category-pills button:hover {
+  background: rgba(148, 163, 184, 0.15);
+}
+
+.category-pills button.active {
+  background: #f48024;
+  color: white;
+  border-color: #f48024;
+}
+
+/* ================= SEARCH HIGHLIGHT ================= */
+
+mark {
+  background: rgba(244, 128, 36, 0.35);
+  color: inherit;
+  padding: 0 2px;
+  border-radius: 4px;
+}
+
+/* ================= DARK MODE TUNING ================= */
+
+[data-theme="dark"] mark {
+  background: rgba(244, 128, 36, 0.55);
+}
+
+[data-theme="dark"] .question-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+
+/* ================= AI SUGGESTIONS ================= */
+
+.ai-suggestions,
+.trending {
+  max-width: 1200px;
+  margin: 0 auto 1.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.ai-suggestions h4,
+.trending h4 {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.ai-suggestions p,
+.trending p {
+  cursor: pointer;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+}
+
+.ai-suggestions p:hover,
+.trending p:hover {
+  background: rgba(148, 163, 184, 0.12);
+}
+
+/* ================= BOOKMARK ================= */
+
+.bookmark {
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.bookmark.saved {
+  color: #facc15;
+}
+
+/* ================= DARK MODE ================= */
+
+[data-theme="dark"] .ai-suggestions,
+[data-theme="dark"] .trending {
+  background: rgba(255, 255, 255, 0.03);
+}

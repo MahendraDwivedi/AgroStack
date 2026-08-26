@@ -1,0 +1,207 @@
+/* vote-buttons.css */
+
+/* Vote buttons container */
+.vote-buttons-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: 1rem;
+  min-width: 50px;
+}
+
+/* Vote buttons */
+.vote-buttons-container button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: #ffffff;
+  border: 2px solid #e3e6e8;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.25rem;
+  color: #9fa6ad;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+/* Upvote button hover */
+.vote-buttons-container button:first-child:hover {
+  background: #fff8f0;
+  border-color: #f48024;
+  color: #f48024;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 6px rgba(244, 128, 36, 0.2);
+}
+
+/* Downvote button hover */
+.vote-buttons-container button:last-child:hover {
+  background: #fff5f5;
+  border-color: #d73737;
+  color: #d73737;
+  transform: translateY(2px);
+  box-shadow: 0 2px 6px rgba(215, 55, 55, 0.2);
+}
+
+/* Active/Pressed state */
+.vote-buttons-container button:active {
+  transform: scale(0.95);
+}
+
+/* Vote count display */
+.vote-buttons-container > div {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #232629;
+  padding: 0.25rem 0;
+  min-width: 40px;
+  text-align: center;
+}
+
+/* Positive vote count */
+.vote-buttons-container > div[data-positive="true"],
+.vote-buttons-container > div:not([data-negative="true"]) {
+  color: #5eba7d;
+}
+
+/* Negative vote count */
+.vote-buttons-container > div[data-negative="true"] {
+  color: #d73737;
+}
+
+/* Zero votes */
+.vote-buttons-container > div:empty::after,
+.vote-buttons-container > div[data-zero="true"] {
+  content: "0";
+  color: #9fa6ad;
+}
+
+/* Voted state - Upvoted */
+.vote-buttons-container.upvoted button:first-child {
+  background: #f48024;
+  border-color: #f48024;
+  color: white;
+  box-shadow: 0 2px 6px rgba(244, 128, 36, 0.3);
+}
+
+.vote-buttons-container.upvoted > div {
+  color: #f48024;
+}
+
+/* Voted state - Downvoted */
+.vote-buttons-container.downvoted button:last-child {
+  background: #d73737;
+  border-color: #d73737;
+  color: white;
+  box-shadow: 0 2px 6px rgba(215, 55, 55, 0.3);
+}
+
+.vote-buttons-container.downvoted > div {
+  color: #d73737;
+}
+
+/* Disabled state */
+.vote-buttons-container button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  background: #f8f9fa;
+  border-color: #e3e6e8;
+  color: #cbd5dc;
+}
+
+.vote-buttons-container button:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Focus styles for accessibility */
+.vote-buttons-container button:focus-visible {
+  outline: 2px solid #0074cc;
+  outline-offset: 2px;
+}
+
+/* Loading state */
+.vote-buttons-container.loading button {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Animation for vote count change */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.vote-buttons-container > div.animate {
+  animation: pulse 0.3s ease-out;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .vote-buttons-container {
+    flex-direction: row;
+    gap: 0.75rem;
+    margin-right: 0;
+    margin-bottom: 1rem;
+    min-width: auto;
+  }
+
+  .vote-buttons-container button {
+    width: 36px;
+    height: 36px;
+    font-size: 1.125rem;
+  }
+
+  .vote-buttons-container > div {
+    font-size: 1.125rem;
+    min-width: 50px;
+  }
+}
+
+/* High vote count styling */
+.vote-buttons-container > div[data-high="true"] {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+/* Tooltip styling (optional enhancement) */
+.vote-buttons-container button[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  top: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.25rem 0.5rem;
+  background: #232629;
+  color: white;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Arrow symbols styling */
+.vote-buttons-container button:first-child {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.vote-buttons-container button:last-child {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+/* Smooth color transitions */
+.vote-buttons-container * {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+/* Add subtle shadow to make

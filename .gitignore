@@ -1,0 +1,42 @@
+# ==========================================
+# Nested Git metadata
+# ==========================================
+agrostack-backend/.git/
+agrostack-frontend/.git/
+
+# ==========================================
+# Spring Boot
+# ==========================================
+agrostack-backend/target/
+agrostack-backend/.mvn/
+
+# NEVER COMMIT REAL CREDENTIALS
+agrostack-backend/src/main/resources/application.properties
+agrostack-backend/src/main/resources/application.yml
+
+# ==========================================
+# Frontend
+# ==========================================
+agrostack-frontend/node_modules/
+agrostack-frontend/dist/
+agrostack-frontend/build/
+
+# ==========================================
+# Environment files
+# ==========================================
+.env
+.env.*
+!.env.example
+
+# ==========================================
+# IDE
+# ==========================================
+.idea/
+.vscode/
+*.iml
+
+# ==========================================
+# OS
+# ==========================================
+.DS_Store
+Thumbs.db

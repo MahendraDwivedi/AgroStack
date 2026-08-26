@@ -1,0 +1,232 @@
+/* ask-question.css */
+
+/* Main container styling */
+.ask-question-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e3e6e8;
+}
+
+/* Page title */
+.ask-question-container h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #232629;
+  margin: 0 0 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid #f48024;
+  background: linear-gradient(to right, #f48024 0%, #f48024 4px, transparent 4px);
+  padding-left: 1rem;
+}
+
+/* Form elements container */
+.ask-question-container form,
+.ask-question-container > div {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Input fields */
+.ask-question-container input[type="text"],
+.ask-question-container input[placeholder] {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  color: #232629;
+  background: #ffffff;
+  border: 2px solid #e3e6e8;
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.ask-question-container input[type="text"]:focus,
+.ask-question-container input[placeholder]:focus {
+  border-color: #0074cc;
+  box-shadow: 0 0 0 3px rgba(0, 116, 204, 0.1);
+}
+
+.ask-question-container input[type="text"]:hover,
+.ask-question-container input[placeholder]:hover {
+  border-color: #cbd5dc;
+}
+
+/* Textarea */
+.ask-question-container textarea {
+  width: 100%;
+  min-height: 200px;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  color: #232629;
+  background: #ffffff;
+  border: 2px solid #e3e6e8;
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.ask-question-container textarea:focus {
+  border-color: #0074cc;
+  box-shadow: 0 0 0 3px rgba(0, 116, 204, 0.1);
+}
+
+.ask-question-container textarea:hover {
+  border-color: #cbd5dc;
+}
+
+/* Placeholder styling */
+.ask-question-container input::placeholder,
+.ask-question-container textarea::placeholder {
+  color: #9fa6ad;
+  font-weight: 400;
+}
+
+/* Submit button */
+.ask-question-container button {
+  align-self: flex-start;
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #f48024 0%, #e67317 100%);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(244, 128, 36, 0.3);
+  margin-top: 0.5rem;
+}
+
+.ask-question-container button:hover {
+  background: linear-gradient(135deg, #e67317 0%, #d66612 100%);
+  box-shadow: 0 4px 8px rgba(244, 128, 36, 0.4);
+  transform: translateY(-1px);
+}
+
+.ask-question-container button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(244, 128, 36, 0.3);
+}
+
+.ask-question-container button:disabled {
+  background: #e3e6e8;
+  color: #9fa6ad;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Add labels before inputs using CSS */
+.ask-question-container input[placeholder="Title"]::before,
+.ask-question-container textarea[placeholder="Description"]::before,
+.ask-question-container input[placeholder="Category"]::before {
+  content: attr(placeholder);
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #232629;
+  margin-bottom: 0.5rem;
+}
+
+/* Field wrapper styling for better structure */
+.ask-question-container > :not(h2):not(button) {
+  position: relative;
+}
+
+/* Add helpful text styling */
+.ask-question-container input[placeholder="Title"] {
+  font-weight: 500;
+}
+
+.ask-question-container input[placeholder="Category"] {
+  text-transform: capitalize;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .ask-question-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .ask-question-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .ask-question-container input[type="text"],
+  .ask-question-container input[placeholder],
+  .ask-question-container textarea {
+    font-size: 0.9375rem;
+  }
+
+  .ask-question-container textarea {
+    min-height: 150px;
+  }
+
+  .ask-question-container button {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+/* Animation for form appearance */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ask-question-container {
+  animation: fadeInUp 0.4s ease-out;
+}
+
+/* Focus ring for accessibility */
+.ask-question-container input:focus-visible,
+.ask-question-container textarea:focus-visible,
+.ask-question-container button:focus-visible {
+  outline: 2px solid #0074cc;
+  outline-offset: 2px;
+}
+
+/* Character count hint (optional enhancement) */
+.ask-question-container textarea:focus::after {
+  content: "";
+  display: block;
+}
+
+/* Success state */
+.ask-question-container.success button {
+  background: linear-gradient(135deg, #5eba7d 0%, #48a868 100%);
+  box-shadow: 0 2px 4px rgba(94, 186, 125, 0.3);
+}
+
+.ask-question-container.success button::after {
+  content: " ✓";
+}
+
+/* Error state */
+.ask-question-container input.error,
+.ask-question-container textarea.error {
+  border-color: #d73737;
+  background: #fff5f5;
+}
+
+.ask-question-container input.error:focus,
+.ask-question-container textarea.error:focus {
+  box-shadow: 0 0 0 3px rgba(215, 55, 55, 0.1);
+}

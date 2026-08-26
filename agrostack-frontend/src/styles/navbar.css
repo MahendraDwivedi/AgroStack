@@ -1,0 +1,78 @@
+/* 🌍 Global Theme Variables */
+body[data-theme="light"] {
+  --bg: #ffffff;
+  --text: #111827;
+  --border: #e5e7eb;
+  --card-bg: #f9fafb;
+}
+
+body[data-theme="dark"] {
+  --bg: #0f172a;
+  --text: #f8fafc;
+  --border: #334155;
+  --card-bg: #020617;
+}
+
+/* 🌍 Apply theme to entire app */
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--card-bg);
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  opacity: 0.8;
+}
+
+/* Buttons */
+.theme-btn,
+.logout-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.theme-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.logout-btn {
+  background-color: #e53935;
+  color: #fff;
+}

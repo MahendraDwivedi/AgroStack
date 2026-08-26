@@ -1,0 +1,208 @@
+/* ================= DASHBOARD ROOT ================= */
+
+.dashboard {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  color: var(--text);
+}
+
+.dashboard h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  padding-left: 1rem;
+  border-left: 5px solid #f48024;
+}
+
+/* ================= STATS ================= */
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 2.5rem;
+}
+
+/* ================= EMPTY ================= */
+
+.empty {
+  text-align: center;
+  padding: 2rem;
+  background: var(--card-bg);
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  opacity: 0.7;
+}
+
+/* ================= CARD ================= */
+
+.dashboard-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* ================= TITLES ================= */
+
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.card-title:hover {
+  text-decoration: underline;
+}
+
+/* ================= ANSWER PREVIEW ================= */
+
+.answer-preview {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.85;
+  max-height: 3.2em;
+  overflow: hidden;
+  position: relative;
+}
+
+.answer-preview::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1.2em;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    var(--card-bg)
+  );
+}
+
+/* ================= READ MORE ================= */
+
+.read-more {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #2563eb;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
+
+/* ================= META ================= */
+
+.meta {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.accepted {
+  color: #22c55e;
+  font-weight: 600;
+  font-size: 0.85rem;
+  background: rgba(34, 197, 94, 0.15);
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+}
+
+/* ================= ACTIONS ================= */
+
+.card-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn {
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  cursor: pointer;
+}
+
+.btn.danger {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+/* ================= PAGINATION ================= */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* ================= MODAL ================= */
+
+.answer-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.answer-modal {
+  background: var(--card-bg);
+  width: min(800px, 92%);
+  max-height: 85vh;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: modalFade 0.2s ease;
+}
+
+.modal-header {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.modal-content {
+  padding: 1.25rem;
+  overflow-y: auto;
+}
+
+@keyframes modalFade {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

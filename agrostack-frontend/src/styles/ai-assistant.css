@@ -1,0 +1,106 @@
+/* ================= AI FLOAT BUTTON ================= */
+
+.ai-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #3b82f6);
+  color: white;
+  font-size: 1.6rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+}
+
+/* ================= AI PANEL ================= */
+
+.ai-panel {
+  position: fixed;
+  bottom: 90px;
+  right: 24px;
+  width: 320px;
+  max-height: 420px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+/* Header */
+.ai-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, #6366f1, #3b82f6);
+  color: white;
+  font-weight: 600;
+}
+
+.ai-header button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Messages */
+.ai-messages {
+  flex: 1;
+  padding: 0.75rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ai-msg {
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+
+.ai-msg.bot {
+  background: rgba(148, 163, 184, 0.15);
+  align-self: flex-start;
+}
+
+.ai-msg.user {
+  background: #3b82f6;
+  color: white;
+  align-self: flex-end;
+}
+
+/* Input */
+.ai-input {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.6rem;
+  border-top: 1px solid var(--border);
+}
+
+.ai-input input {
+  flex: 1;
+  padding: 0.45rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+}
+
+.ai-input button {
+  padding: 0.45rem 0.8rem;
+  border-radius: 6px;
+  border: none;
+  background: #3b82f6;
+  color: white;
+  cursor: pointer;
+}
