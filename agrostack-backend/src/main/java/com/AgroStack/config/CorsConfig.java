@@ -10,13 +10,24 @@ public class CorsConfig {
 
     @Bean
     public WebMvcConfigurer corsConfigurer() {
+
         return new WebMvcConfigurer() {
+
             @Override
             public void addCorsMappings(CorsRegistry registry) {
+
                 registry.addMapping("/**")
-                        // ✅ IMPORTANT CHANGE
-                        .allowedOriginPatterns("http://localhost:5173")
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                        .allowedOriginPatterns(
+                                "http://localhost:5173",
+                                "https://agrostack.onrender.com"
+                        )
+                        .allowedMethods(
+                                "GET",
+                                "POST",
+                                "PUT",
+                                "DELETE",
+                                "OPTIONS"
+                        )
                         .allowedHeaders("*")
                         .allowCredentials(true);
             }
