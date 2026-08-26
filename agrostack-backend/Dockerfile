@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN cp src/main/resources/application.properties.example src/main/resources/application.properties
+RUN cp src/main/resources/application-example.properties src/main/resources/application.properties
 
 RUN chmod +x mvnw
 RUN ./mvnw clean package -DskipTests
