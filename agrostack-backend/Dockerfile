@@ -4,11 +4,12 @@ WORKDIR /app
 
 COPY . .
 
-RUN cp src/main/resources/application-example.properties src/main/resources/application.properties
-
 RUN chmod +x mvnw
-RUN ./mvnw clean package -DskipTests
+
+RUN apt-get update && apt-get install -y maven && rm -rf /var/lib/apt/lists/*
+
+RUN mvn clean package -DskipTests
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "target/JobHub-0.0.1-SNAPSHOT.jar"]
+CMD ["sh", "-c", "java -jar target/*.jar"]
