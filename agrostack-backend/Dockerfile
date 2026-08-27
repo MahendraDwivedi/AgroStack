@@ -1,15 +1,13 @@
-FROM eclipse-temurin:21-jdk
-
-WORKDIR /app
-
-COPY . .
-
-RUN chmod +x mvnw
-
-RUN apt-get update && apt-get install -y maven && rm -rf /var/lib/apt/lists/*
-
+# ===== BUILD STAGE =====
+FROM maven:3.9.6-eclipse-temurin-17 AS build
+WORKDIR /build
+COPY pom.xml .
+COPY src ./src
 RUN mvn clean package -DskipTests
 
+# ===== RUN STAGE =====
+FROM eclipse-temurin:17-jdk-alpine
+WORKDIR /app
+COPY --from=build /build/target/*.jar app.jar
 EXPOSE 8080
-
-CMD ["sh", "-c", "java -jar target/*.jar"]
+ENTRYPOINT ["java","-jar","app.jar"]
