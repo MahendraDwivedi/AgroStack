@@ -10,6 +10,8 @@ import com.AgroStack.dto.ApiResponse;
 import com.AgroStack.dto.UserLoginRequest;
 import com.AgroStack.dto.UserRegisterRequest;
 import com.AgroStack.dto.UserResponse;
+import com.AgroStack.dto.ForgotPasswordRequest;
+import com.AgroStack.dto.ResetPasswordRequest;
 import com.AgroStack.service.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -29,5 +31,15 @@ public class UserController {
     @PostMapping("/login")
     public ApiResponse<UserResponse> login(@RequestBody UserLoginRequest request) {
         return userService.login(request);
+    }
+
+    @PostMapping("/forgot-password")
+    public ApiResponse<String> forgotPassword(@RequestBody ForgotPasswordRequest request) {
+        return userService.requestPasswordReset(request);
+    }
+
+    @PostMapping("/reset-password")
+    public ApiResponse<String> resetPassword(@RequestBody ResetPasswordRequest request) {
+        return userService.resetPassword(request);
     }
 }

@@ -10,6 +10,16 @@ export const register = async (data) => {
   return res.data;
 };
 
+export const requestPasswordReset = async (email) => {
+  const res = await api.post("/auth/forgot-password", { email });
+  return res.data;
+};
+
+export const resetPassword = async ({ token, password }) => {
+  const res = await api.post("/auth/reset-password", { token, password });
+  return res.data;
+};
+
 // utils/auth.js
 export const getUsername = () => {
   try {

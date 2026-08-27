@@ -34,3 +34,25 @@
 .auth button:hover {
   background: #0074cc;
 }
+
+.auth-link {
+  display: block;
+  margin-top: 14px;
+  text-align: center;
+  color: #0074cc;
+}
+
+.auth-help {
+  margin: -8px 0 16px;
+  color: #4b5563;
+  font-size: 0.9rem;
+}
+
+.error,
+.success {
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+.error { color: #b91c1c; }
+.success { color: #15803d; }

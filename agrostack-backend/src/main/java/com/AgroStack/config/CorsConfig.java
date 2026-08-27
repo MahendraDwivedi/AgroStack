@@ -18,7 +18,9 @@ public class CorsConfig {
                 registry.addMapping("/**")
                         .allowedOriginPatterns(
                                 "http://localhost:5173",
-                                "https://agro-stack.onrender.com"
+                                "http://localhost:5174",
+                                "https://agro-stack.onrender.com",
+                                "https://agrostack.onrender.com"
                         )
                         .allowedMethods(
                                 "GET",
