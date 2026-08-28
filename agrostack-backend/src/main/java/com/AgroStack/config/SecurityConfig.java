@@ -28,13 +28,8 @@ public class SecurityConfig {
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             )
             .authorizeHttpRequests(auth -> auth
-
-                // Browser CORS preflight
                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-
-                // Let existing controllers handle authentication/authorization
                 .requestMatchers("/api/**").permitAll()
-
                 .anyRequest().permitAll()
             );
 
