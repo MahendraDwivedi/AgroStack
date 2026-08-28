@@ -11,7 +11,6 @@ agrostack-backend/target/
 agrostack-backend/.mvn/
 
 # NEVER COMMIT REAL CREDENTIALS
-agrostack-backend/src/main/resources/application.properties
 agrostack-backend/src/main/resources/application.yml
 
 # ==========================================
